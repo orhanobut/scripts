@@ -1,7 +1,7 @@
 BuildReport aggregates all data from each tool report and summarize them in html format in order to use it via email. 
 
-- **PR Info**: Show which commits are 
-- **Apk Info**: Comparison is also shown between before the pull request and after merge
+- **PR Info**: Which commits are in the pull request
+- **Apk Info**: All information about the apk. Comparison is also shown between before the pull request and after merge
  - **Method count**
  - **Apk Size**
  - **Min sdk version**
@@ -17,7 +17,7 @@ BuildReport aggregates all data from each tool report and summarize them in html
 <img src='https://github.com/orhanobut/buildreport/blob/master/art/screenshot.png'/>
 
 # Usage
-Add the following commands to your execute shell in post build
+Add the following commands to your execute shell in post build. build-report script uses assembleRelease in order to compare and fetch information about apk. If you want to use for debug build, you need to change build-report.sh. I recommend to use release versions
 
 ```shell
 $ mkdir app/build/report
