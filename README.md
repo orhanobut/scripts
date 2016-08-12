@@ -2,8 +2,8 @@ BuildReport aggregates all data from each tool report and summarize them in html
 
 - **PR Info**: Which commits are in the pull request
 - **Apk Info**: All information about the apk. Comparison is also shown between before the pull request and after merge
- - **Method count**
- - **Apk Size**
+ - **Method count**: Current, Diff, New and Remaining count
+ - **Apk Size in mb**: Current, Diff, New
  - **Min sdk version**
  - **Target sdk version**
  - **Permissions**: New added permission are shown in green and annotated. Removed permissions are shown in red and annotated
