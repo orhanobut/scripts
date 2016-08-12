@@ -156,16 +156,16 @@ def generate_apk_info():
       current_apk_info.apk_size_in_mb_formatted(),
       new_apk_info.apk_size_diff(current_apk_info),
       new_apk_info.apk_size_in_mb_formatted(),
-      "N/A"
+      "-"
   )
   write("<tr><td><b>Apk Size (mb)</b></td><td>" + apk_size_text + "</td></tr>")
 
   # Min Sdk Version
-  min_sdk_version = apk_info_row(current_apk_info.min_sdk_version, "N/A", new_apk_info.min_sdk_version, "N/A")
+  min_sdk_version = apk_info_row(current_apk_info.min_sdk_version, "-", new_apk_info.min_sdk_version, "-")
   write("<tr><td><b>Min Sdk Version</b></td><td>" + min_sdk_version + "</td></tr>")
 
   # Target Sdk Version
-  target_sdk_version = apk_info_row(current_apk_info.target_sdk_version, "N/A", new_apk_info.target_sdk_version, "N/A")
+  target_sdk_version = apk_info_row(current_apk_info.target_sdk_version, "-", new_apk_info.target_sdk_version, "-")
   write("<tr><td><b>Target Sdk Version</b></td><td>" + target_sdk_version + "</td></tr>")
 
   # Permissions
