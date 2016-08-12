@@ -10,7 +10,7 @@ Aggregates all data from each tool report and summarize them in html format in o
  - **Permissions**: New added permission are shown in green and annotated. Removed permissions are shown in red and annotated
 - **Lint summary**
 - **Checkstyle summary**
-- **Unit tests summary**: Some tests are highligted based on the status
+- **Unit tests summary**: Grouped by test classes. Some test classes are highligted regarding to status
  - **Red**: Failure tests
  - **Orange**: Ignored tests
  - **Blue**: These tests take longer than 1 second, usually unit tests should be super fast
