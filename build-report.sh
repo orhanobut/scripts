@@ -7,6 +7,12 @@ mkdir app/build/report
 mkdir app/build/report/current
 mkdir app/build/report/new
 
+echo "Fetching build_report.py"
+curl https://raw.githubusercontent.com/orhanobut/buildreport/master/build_report.py -o app/build/report/build_report.py
+
+echo "Fetching apk_info.py"
+curl https://raw.githubusercontent.com/orhanobut/buildreport/master/apk_info.py -o app/build/report/apk_info.py
+
 PR_BRANCH=$(git rev-parse --short HEAD)
 echo "PR BRANCH=$PR_BRANCH"
 
