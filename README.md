@@ -1,4 +1,5 @@
-BuildReport aggregates all data from each tool report and summarize them in html format in order to use it via email. 
+# buildreport
+Aggregates all data from each tool report and summarize them in html format in order to use it via email. Following information is provided:
 
 - **Pull request info**: Which commits are in the pull request
 - **Apk info**: All information about the apk. Comparison is also shown between prior the pull request and after
