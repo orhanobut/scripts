@@ -15,14 +15,14 @@ echo "MERGE BRANCH=$MERGE_BRANCH"
 
 # build apk from master and fetch apk info
 git checkout $MERGE_BRANCH
-./gradlew assembleDebug
-cp app/build/outputs/apk/app-debug.apk app/build/report/current/app-release.apk
+./gradlew assembleRelease
+cp app/build/outputs/apk/app-release.apk app/build/report/current/app-release.apk
 unzip app/build/report/current/app-release.apk -d app/build/report/current
 
 # switch back to PR branch
 git checkout $PR_BRANCH
-./gradlew assembleDebug
-cp app/build/outputs/apk/app-debug.apk app/build/report/new/app-release.apk
+./gradlew assembleRelease
+cp app/build/outputs/apk/app-release.apk app/build/report/new/app-release.apk
 unzip app/build/report/new/app-release.apk -d app/build/report/new
 
 python app/build/report/build_report.py
