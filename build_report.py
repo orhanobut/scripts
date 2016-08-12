@@ -21,7 +21,14 @@ def generate_pr_info():
         shell=True,
         stdout=subprocess.PIPE
   ).stdout.read()
-  write(str(commits))
+  commits = commits.split('\n')
+
+  write('<ul>')
+  for commit in commits:
+    if commit == '' :
+      continue
+    write('<li>' + commit + '</li>')
+  write('</ul>')
 
 def generate_lint_report():
   soup = get_soup("app/build/outputs/lint-results-debug.html")
