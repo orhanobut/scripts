@@ -15,6 +15,13 @@ def add_header(text):
 def write(text):
   file.write(text)
 
+def generate_pr_info():
+  commits = subprocess.Popen(
+        'git log @~.. --oneline --no-merges --pretty=%B',
+        shell=True,
+        stdout=subprocess.PIPE
+  ).stdout.read()
+  write(str(commits))
 
 def generate_lint_report():
   soup = get_soup("app/build/outputs/lint-results-debug.html")
@@ -169,6 +176,9 @@ def generate_apk_info():
 
 
 with open('app/build/report/build-report.html', 'w+') as file:
+  add_header("PR INFO")
+  generate_pr_info()
+
   add_header("APK INFO (release)")
   generate_apk_info()
 
