@@ -17,7 +17,7 @@ BuildReport aggregates all data from each tool report and summarize them in html
 <img src='https://github.com/orhanobut/buildreport/blob/master/art/screenshot.png'/>
 
 # Usage
-Add the following commands to your execute shell in post build. build-report script uses assembleRelease in order to compare and fetch information about apk. If you want to use for debug build, you need to change build-report.sh. I recommend to use release versions
+Add the following commands to your execute shell in post build. build-report script uses assembleRelease in order to compare and fetch information about apk. If you want to use for debug build, you need to change build-report.sh. 
 
 ```shell
 $ mkdir app/build/report
