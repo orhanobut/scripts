@@ -17,12 +17,12 @@ echo "MERGE BRANCH=$MERGE_BRANCH"
 git checkout $MERGE_BRANCH
 ./gradlew assembleRelease
 cp app/build/outputs/apk/app-release.apk app/build/report/current/app-release.apk
-unzip app/build/report/current/app-release.apk -d app/build/report/current
+unzip app/build/report/current/app-release.apk -d app/build/report/current > /dev/null
 
 # switch back to PR branch
 git checkout $PR_BRANCH
 ./gradlew assembleRelease
 cp app/build/outputs/apk/app-release.apk app/build/report/new/app-release.apk
-unzip app/build/report/new/app-release.apk -d app/build/report/new
+unzip app/build/report/new/app-release.apk -d app/build/report/new > /dev/null
 
 python app/build/report/build_report.py
