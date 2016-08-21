@@ -19,12 +19,10 @@ Aggregates all data from each tool report and summarize them in html format in o
 <img src='https://github.com/orhanobut/buildreport/blob/master/art/screenshot.png'/>
 
 # Usage
-Add the following commands to your execute shell in post build. build-report script uses assembleRelease in order to compare and fetch information about apk. If you want to use for debug build, you need to change build-report.sh. 
+Run the following command in your execute shell. That's it. If you want to compare debug builds, replace RELEASE with DEBUG. If you leave it empty, RELEASE build type will be used as default
 
 ```shell
-$ mkdir app/build/report
-$ curl https://raw.githubusercontent.com/orhanobut/buildreport/master/build-report.sh -o app/build/report/build-report.sh
-$ sh app/build/report/build-report.sh
+curl https://raw.githubusercontent.com/orhanobut/scripts/master/buildreport/build-report.sh | bash -s RELEASE
 ```
 
 ### Prerequisities
