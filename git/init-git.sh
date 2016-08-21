@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-while [[ -z "$USERNAME" ]]
+while [[ -z "$USERNAME" ]];
 do
   read -p "Enter your name:" USERNAME
 done 
 
-while [[ -z "$EMAIL" ]]
+while [[ -z "$EMAIL" ]];
 do
   read -p "Enter your email:" EMAIL
 done
