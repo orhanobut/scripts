@@ -183,24 +183,24 @@ def generate_apk_info():
 
 
 with open('app/build/report/build-report.html', 'w+') as file:
-  echo "Generating pull request info"
+  print "Generating pull request info"
   add_header("Pull Request Info")
   generate_pr_info()
 
-  echo "Generating APK info (release)"
+  print "Generating APK info (release)"
   add_header("APK Info (release)")
   generate_apk_info()
 
-  echo "Generating lint report"
+  print "Generating lint report"
   add_header("Lint")
   generate_lint_report()
 
-  echo "Generating checkstyle report"
+  print "Generating checkstyle report"
   add_header("Checkstyle")
   generate_checkstyle_report()
 
-  echo "Generating unit tests"
+  print "Generating unit tests"
   add_header("Unit Tests")
   generate_unit_tests()
 
-  echo "Build report is generated at app/build/report/build-report.html"
+  print "Build report is generated at app/build/report/build-report.html"
