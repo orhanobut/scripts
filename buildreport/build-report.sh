@@ -11,10 +11,9 @@ echo "$BUILD_TYPE will be used to compare APK info"
 GRADLE_BUILD_TYPE="assembleRelease"
 APP_NAME="app-release.apk"
 
-if [ $BUILD_TYPE = "DEBUG"]
-  then
-    GRADLE_BUILD_TYPE="assembleDebug"
-    APP_NAME="app-debug.apk"
+if [ $BUILD_TYPE == "DEBUG" ]; then
+  GRADLE_BUILD_TYPE="assembleDebug"
+  APP_NAME="app-debug.apk"
 fi
 
 rm -R app/build/report/current/
