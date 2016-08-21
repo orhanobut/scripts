@@ -30,7 +30,7 @@ class ApkInfo:
 
     method_count = long(float(method_count))
 
-    apk_path = apk_folder_path + "/app-release.apk"
+    apk_path = apk_folder_path + "/app.apk"
     # Apk size
     apk_size = os.path.getsize(apk_path)
 
