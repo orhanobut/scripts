@@ -20,7 +20,8 @@ Aggregates all data from each tool report and summarize them in html format in o
 
 Run the following command in your execute shell. That's it. If you want to compare debug builds, replace RELEASE with DEBUG. If you leave it empty, RELEASE build type will be used as default
 ```shell
-curl https://raw.githubusercontent.com/orhanobut/scripts/master/buildreport/build-report.sh | bash -s RELEASE
+$ curl https://raw.githubusercontent.com/orhanobut/scripts/master/buildreport/build-report.sh -o build-report.sh
+$ sh build-report.sh RELEASE
 ```
 
 [For more details about buildreport](https://github.com/orhanobut/scripts/blob/master/buildreport/README.md)
