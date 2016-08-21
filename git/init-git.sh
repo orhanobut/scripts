@@ -1,22 +1,20 @@
 #!/usr/bin/env bash
 
-if [ -z $1 ]
-  then 
-    echo "No username is provided. Add your username and email as arguments. ./init-git YOUR_USERNAME YOUR_EMAIL"
-    exit 1
-fi
+while [[ -z "$USERNAME" ]]
+do
+  read -p "Enter your name:" USERNAME
+done 
 
-if [ -z $2 ]  
-  then
-    echo "No email is provided. Add your email as argument. ./init-git $1 YOUR_EMAIL"
-    exit 1
-fi
+while [[ -z "$EMAIL" ]]
+do
+  read -p "Enter your email:" EMAIL
+done
 
-echo "Setting username as $1"
-git config --global user.name $1
+echo "Setting username as $USERNAME"
+git config --global user.name $USERNAME
 
-echo "Setting user email as $2"
-git config --global user.email $2
+echo "Setting user email as $EMAIL"
+git config --global user.email $EMAIL
 
 echo "Setting aliases"
 echo "l -> log --oneline"
