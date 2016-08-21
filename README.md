@@ -20,7 +20,7 @@ Aggregates all data from each tool report and summarize them in html format in o
 
 Run the following command in your execute shell. That's it. If you want to compare debug builds, replace RELEASE with DEBUG. If you leave it empty, RELEASE build type will be used as default
 ```shell
-curl https://goo.gl/h5ROob | bash -s RELEASE
+curl https://raw.githubusercontent.com/orhanobut/scripts/master/buildreport/build-report.sh | bash -s RELEASE
 ```
 
 [For more details about buildreport](https://github.com/orhanobut/scripts/blob/master/buildreport/README.md)
@@ -44,7 +44,7 @@ git ac      Add and commit
 Replace USERNAME and EMAIL with your information and run in your command line. That's it.
 
 ```shell
-curl https://goo.gl/nw4F9W | bash -s USERNAME EMAIL
+curl https://raw.githubusercontent.com/orhanobut/scripts/master/git/init-git.sh | bash -s USERNAME EMAIL
 ```
 
 
