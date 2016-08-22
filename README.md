@@ -24,6 +24,11 @@ $ curl https://raw.githubusercontent.com/orhanobut/scripts/master/buildreport/bu
 $ sh build-report.sh RELEASE
 ```
 
+buildreport compares the new changes with the current codebase, therefore it tries to find the base branch current HEAD by using grep. You can add your own grep search text if you need a different solution.
+```shell
+sh build-report.sh RELEASE "your grep text"
+```
+
 [For more details about buildreport](https://github.com/orhanobut/scripts/blob/master/buildreport/README.md)
 
 # git
