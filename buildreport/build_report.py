@@ -2,6 +2,9 @@ from bs4 import BeautifulSoup
 import os
 import subprocess
 from apk_info import ApkInfo
+import sys
+
+REPORT_PATH = sys.argv[1:][0]
 
 
 def get_soup(url):
@@ -31,7 +34,7 @@ def generate_pr_info():
   write('</ul>')
 
 def generate_lint_report():
-  soup = get_soup("app/build/outputs/lint-results-debug.html")
+  soup = get_soup(REPORT_PATH + "/lint.html")
   table = soup.find('table', attrs={'class': 'overview'})
 
   categories = table.find_all('td', attrs={'class': 'categoryColumn'})
@@ -58,7 +61,7 @@ def generate_lint_report():
 
 
 def generate_checkstyle_report():
-  soup = get_soup("app/build/reports/checkstyle/checkstyle.html")
+  soup = get_soup(REPORT_PATH + "/checkstyle.html")
 
   table = soup.find('table', attrs={'class': 'log'})
   table.attrs = None
@@ -67,7 +70,7 @@ def generate_checkstyle_report():
 
 
 def generate_unit_tests():
-  soup = get_soup("app/build/reports/tests/debug/index.html")
+  soup = get_soup(REPORT_PATH + "/unittests.html")
 
   # Add summary
   div_summary = soup.find('div', attrs={'id': 'summary'})
@@ -182,7 +185,7 @@ def generate_apk_info():
   write("</table>")
 
 
-with open('report/build-report.html', 'w+') as file:
+with open(REPORT_PATH + '/build-report.html', 'w+') as file:
   print "Generating pull request info"
   add_header("Pull Request Info")
   generate_pr_info()
@@ -203,4 +206,4 @@ with open('report/build-report.html', 'w+') as file:
   add_header("Unit Tests")
   generate_unit_tests()
 
-  print "Build report is generated at report/build-report.html"
+  print "Build report is generated at " + REPORT_PATH + "/build-report.html"

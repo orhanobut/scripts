@@ -36,6 +36,15 @@ mkdir "$REPORT_PATH"
 mkdir "$REPORT_PATH/current"
 mkdir "$REPORT_PATH/new"
 
+echo "Copy checkstyle report"
+cp app/build/reports/checkstyle/checkstyle.html "$REPORT_PATH/checkstyle.html"
+
+echo "Copy lint report"
+cp app/build/outputs/lint-results-debug.html "$REPORT_PATH/lint.html"
+
+echo "Copy unit tests report"
+cp app/build/reports/tests/debug/index.html "$REPORT_PATH/unittests.html"
+
 echo "Fetching build_report.py"
 curl https://raw.githubusercontent.com/orhanobut/scripts/master/buildreport/build_report.py -o "$REPORT_PATH/build_report.py"
 
@@ -69,4 +78,4 @@ echo "Unzipping new apk"
 unzip "$REPORT_PATH/new/app.apk" -d "$REPORT_PATH/new" >> "$REPORT_PATH/new/log.txt"
 
 echo "Building report"
-python "$REPORT_PATH/build_report.py"
+python "$REPORT_PATH/build_report.py" $REPORT_PATH
