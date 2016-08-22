@@ -1,11 +1,16 @@
 #!/bin/bash
 
 BUILD_TYPE=$1
-ALL=$2
+COMPARE_COMMIT_GREP=$2
 
 if [ -z $BUILD_TYPE ]
   then
    BUILD_TYPE="RELEASE"
+fi
+
+if [ -z $COMPARE_COMMIT_GREP ]
+  then
+    COMPARE_COMMIT_GREP="Merge pull request"
 fi
 
 GRADLE_BUILD_TYPE="assembleRelease"
@@ -20,6 +25,7 @@ fi
 echo "Build type : $BUILD_TYPE"
 echo "Gradle build command : ./gradlew $GRADLE_BUILD_TYPE"
 echo "App-name : $APP_NAME"
+echo "Compare commit grep : $COMPARE_COMMIT_GREP"
 
 rm -R app/build/report/current/
 rm -R app/build/report/new/
@@ -37,7 +43,7 @@ curl https://raw.githubusercontent.com/orhanobut/scripts/master/buildreport/apk_
 PR_BRANCH=$(git rev-parse --short HEAD)
 echo "PR BRANCH=$PR_BRANCH"
 
-MERGE_BRANCH=$(git log --merges --grep "Merge pull request" -1 --format=format:%h)
+MERGE_BRANCH=$(git log --merges --grep "$COMPARE_COMMIT_GREP" -1 --format=format:%h)
 echo "MERGE BRANCH=$MERGE_BRANCH"
 
 # build apk from master and fetch apk info
