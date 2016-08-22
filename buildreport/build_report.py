@@ -137,8 +137,8 @@ def apk_info_row(current, change, new, remaining):
 
 
 def generate_apk_info():
-  current_apk_info = ApkInfo.new_info('app/build/report/current')
-  new_apk_info = ApkInfo.new_info('app/build/report/new')
+  current_apk_info = ApkInfo.new_info('report/current')
+  new_apk_info = ApkInfo.new_info('report/new')
 
   write("<table>")
 
@@ -182,7 +182,7 @@ def generate_apk_info():
   write("</table>")
 
 
-with open('app/build/report/build-report.html', 'w+') as file:
+with open('report/build-report.html', 'w+') as file:
   print "Generating pull request info"
   add_header("Pull Request Info")
   generate_pr_info()
@@ -203,4 +203,4 @@ with open('app/build/report/build-report.html', 'w+') as file:
   add_header("Unit Tests")
   generate_unit_tests()
 
-  print "Build report is generated at app/build/report/build-report.html"
+  print "Build report is generated at report/build-report.html"
