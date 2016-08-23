@@ -37,3 +37,15 @@ git config --global alias.s "status"
 echo "ac -> git add . && git commit -am"
 git config --global alias.ac "!git add . && git commit -am"
 
+echo "c -> git commit"
+git config --global alias.c "commit"
+
+echo "cm -> git commit -m "
+git config --global alias.cm "commit -m"
+
+echo "pom -> git pull origin master"
+git config --global alias.pom "pull origin master" 
+
+
+
+

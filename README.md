@@ -45,6 +45,9 @@ git ld      Commits that are not pushed to master yet
 git lol     Commits with graph
 git s       status 
 git ac      Add and commit
+git c       commit
+git cm      commit -m
+git pom     pull origin master
 ```
 
 Replace USERNAME and EMAIL with your information and run in your command line. That's it.
