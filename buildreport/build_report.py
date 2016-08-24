@@ -194,7 +194,7 @@ def generate_functional_test_results(report_path):
   write('<h4>' + total_elapsed_time + '</h4>')
 
   total_test_count = subprocess.Popen(
-    'grep "Tests run" '+ report_path +' ',
+    'grep "OK (" '+ report_path +' ',
     shell=True,
     stdout=subprocess.PIPE
   ).stdout.read()
