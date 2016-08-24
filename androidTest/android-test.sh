@@ -41,3 +41,10 @@ adb shell pm install -r "/data/local/tmp/$APPLICATION_ID.test"
 adb shell am instrument -w -r -e package "$PACKAGE_NAME_UNDER_TEST" -e debug false "$APPLICATION_ID.test/$RUNNER" > android-test-log.txt
 
 cat android-test-log.txt
+
+if grep "Failures" android-test-log.txt
+then
+  echo "FUNCTIONAL TESTS FAILED"
+else
+  echo "FUNCTIONAL TESTS SUCCESS"
+fi
