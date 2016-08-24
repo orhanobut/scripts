@@ -3,6 +3,7 @@ import os
 import subprocess
 from apk_info import ApkInfo
 import sys
+import os.path
 
 REPORT_PATH = sys.argv[1:][0]
 
@@ -184,6 +185,35 @@ def generate_apk_info():
       write("<tr><td></td><td colspan='4'>" + permission.name + "</td></tr>")
   write("</table>")
 
+def generate_functional_test_results(report_path):
+  total_elapsed_time = subprocess.Popen(
+    'grep "Time" '+ report_path +' ',
+    shell=True,
+    stdout=subprocess.PIPE
+  ).stdout.read()
+  write('<h4>' + total_elapsed_time + '</h4>')
+
+  total_test_count = subprocess.Popen(
+    'grep "Tests run" '+ report_path +' ',
+    shell=True,
+    stdout=subprocess.PIPE
+  ).stdout.read()
+  write('<h4>' + total_test_count + '</h4>')
+
+  tested_classes = subprocess.Popen(
+    'sed -n "s/INSTRUMENTATION_STATUS: class=//gp" '+ report_path +' | uniq',
+    shell=True,
+    stdout=subprocess.PIPE
+  ).stdout.read()
+  tested_classes = tested_classes.split('\n')
+
+  write('<ul>')
+  for tested_class in tested_classes:
+    if tested_class == '' :
+      continue
+    write('<li>' + tested_class + '</li>')
+  write('</ul>')
+
 
 with open(REPORT_PATH + '/build-report.html', 'w+') as file:
   print "Generating pull request info"
@@ -205,5 +235,11 @@ with open(REPORT_PATH + '/build-report.html', 'w+') as file:
   print "Generating unit tests"
   add_header("Unit Tests")
   generate_unit_tests()
+
+  functional_tests_path=REPORT_PATH+"/android-test-log.txt"
+  if os.path.isfile(functional_tests_path):
+    print "Generating functionals tests"
+    add_header("Functional Tests")
+    generate_functional_test_results(functional_tests_path)
 
   print "Build report is generated at " + REPORT_PATH + "/build-report.html"

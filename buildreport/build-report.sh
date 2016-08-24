@@ -45,6 +45,14 @@ cp app/build/outputs/lint-results-debug.html "$REPORT_PATH/lint.html"
 echo "Copy unit tests report"
 cp app/build/reports/tests/debug/index.html "$REPORT_PATH/unittests.html"
 
+echo "Copy android instrumented tests results if exists"
+if [ -e "android-test-log.txt"]
+then
+  cp android-test-log.txt "$REPORT_PATH/android-test-log.txt"
+fi
+
+
+
 echo "Fetching build_report.py"
 curl https://raw.githubusercontent.com/orhanobut/scripts/master/buildreport/build_report.py -o "$REPORT_PATH/build_report.py"
 
