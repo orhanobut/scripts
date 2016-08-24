@@ -38,4 +38,6 @@ adb push app/build/outputs/apk/app-debug-androidTest-unaligned.apk "/data/local/
 adb shell pm install -r "/data/local/tmp/$APPLICATION_ID.test"
 
 # Running tests
-adb shell am instrument -w -r -e package "$PACKAGE_NAME_UNDER_TEST" -e debug false "$APPLICATION_ID.test/$RUNNER"
+adb shell am instrument -w -r -e package "$PACKAGE_NAME_UNDER_TEST" -e debug false "$APPLICATION_ID.test/$RUNNER" > android-test-log.txt
+
+cat android-test-log.txt
