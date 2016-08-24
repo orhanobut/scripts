@@ -33,7 +33,7 @@ echo "App id under test = $APP_ID"
 echo "Runner for tests = $RUNNER"
 
 # Installing debug apk
-if [ -e app/build/outputs/apk/app-debug.apk ]
+if [ ! -e app/build/outputs/apk/app-debug.apk ]
   then
     ./gradlew assembleDebug > /dev/null
 fi
