@@ -46,7 +46,7 @@ echo "Copy unit tests report"
 cp app/build/reports/tests/debug/index.html "$REPORT_PATH/unittests.html"
 
 echo "Copy android instrumented tests results if exists"
-if [ -e "android-test-log.txt"]
+if [ -e "android-test-log.txt" ]
 then
   cp android-test-log.txt "$REPORT_PATH/android-test-log.txt"
 fi
