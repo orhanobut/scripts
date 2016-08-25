@@ -1,22 +1,39 @@
 #!/usr/bin/env bash
 
-if [ -z $1 ]
- then
-   echo "Pass username and email as parameters  .. | bash -s USERNAME EMAIL"
-   exit 1
+NAME=""
+EMAIL=""
+
+while (( "$#" )); do
+  case "$1" in 
+  "--name") 
+     shift
+     NAME=$1
+     ;;
+  "--email")
+     shift
+     EMAIL=$1
+     ;;
+  esac
+  shift
+done
+
+if [[ $NAME == "" ]]
+  then
+    echo "Name is missing. Add your name by using  --name <YOUR_NAME>"
+    exit 1
 fi
 
-if [ -z $2 ]
+if [[ $EMAIL == "" ]]
   then
-    echo "Pass your email as parameter .. | bash -s $1 YOUR_EMAIL"
+    echo "Email is missing. Add your email by using  --email <YOUR_EMAIL>"
     exit 1
 fi
 
 echo "Setting username as $1"
-git config --global user.name $1
+git config --global user.name $NAME
 
 echo "Setting user email as $2"
-git config --global user.email $2
+git config --global user.email $EMAIL
 
 echo "Setting aliases"
 echo "l -> log --oneline"
@@ -45,6 +62,12 @@ git config --global alias.cm "commit -m"
 
 echo "pom -> git pull origin master"
 git config --global alias.pom "pull origin master" 
+
+echo "b -> git branch"
+git config --global alias.b "branch"
+
+echo "co -> git checkout"
+git config --global alias.co "checkout"
 
 
 

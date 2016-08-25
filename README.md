@@ -48,14 +48,15 @@ git ac      Add and commit
 git c       commit
 git cm      commit -m
 git pom     pull origin master
+git b       branch
+git co      checkout
 ```
 
-Replace USERNAME and EMAIL with your information and run in your command line. That's it.
+Add your name and email to setup your git
 
 ```shell
-curl https://raw.githubusercontent.com/orhanobut/scripts/master/git/init-git.sh | bash -s USERNAME EMAIL
+curl https://raw.githubusercontent.com/orhanobut/scripts/master/git/init-git.sh | bash -s --name <YOUR_NAME> --email <YOUR_EMAIL>
 ```
-
 
 # android
 Initialize all required artifacts for android development
