@@ -55,7 +55,9 @@ git co      checkout
 Add your name and email to setup your git
 
 ```shell
-curl https://raw.githubusercontent.com/orhanobut/scripts/master/git/init-git.sh | bash -s --name <YOUR_NAME> --email <YOUR_EMAIL>
+curl https://raw.githubusercontent.com/orhanobut/scripts/master/git/init-git.sh | bash -s 
+     --name <YOUR_NAME> 
+     --email <YOUR_EMAIL>
 ```
 
 # android
