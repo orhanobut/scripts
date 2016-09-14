@@ -63,6 +63,6 @@ then
   echo "FUNCTIONAL TESTS SUCCESS"
   echo "FUNCTIONAL TESTS SUCCESS" >> android-test-log.txt
 else
-  echo "FUNCTIONAL TESTS SUCCESS"
+  echo "FUNCTIONAL TESTS FAILED"
   echo "FUNCTIONAL TESTS FAILED" >> android-test-log.txt
 fi
