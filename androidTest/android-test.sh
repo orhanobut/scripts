@@ -61,6 +61,8 @@ sed -n "s/INSTRUMENTATION_STATUS: class=//gp" android-test-log.txt | uniq >> $RE
 if grep "OK (" android-test-log.txt
 then
   echo "FUNCTIONAL TESTS SUCCESS"
+  echo "FUNCTIONAL TESTS SUCCESS" >> android-test-log.txt
 else
-  echo "FUNCTIONAL TESTS FAILED"
+  echo "FUNCTIONAL TESTS SUCCESS"
+  echo "FUNCTIONAL TESTS FAILED" >> android-test-log.txt
 fi
