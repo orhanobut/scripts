@@ -46,7 +46,7 @@ echo "ld -> log --oneline origin/master.."
 git config --global alias.ld "log --oneline origin/master.."
 
 echo "lds -> log --oneline origin/master.. --shortstat"
-git config --global alias.ld "log --oneline origin/master.. --shortstat"
+git config --global alias.lds "log --oneline origin/master.. --shortstat"
 
 echo "lol -> log --oneline --decorate --graph"
 git config --global alias.lol "log --oneline --decorate --graph"
