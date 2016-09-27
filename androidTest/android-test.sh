@@ -42,7 +42,7 @@ adb shell pm install -r "/data/local/tmp/$APP_ID"
 
 # Installing test apk
 ./gradlew assembleAndroidTest >> /dev/null
-adb push app/build/outputs/apk/app-debug-androidTest-unaligned.apk "/data/local/tmp/$APP_ID.test"
+adb push app/build/outputs/apk/app-debug-androidTest.apk "/data/local/tmp/$APP_ID.test"
 adb shell pm install -r "/data/local/tmp/$APP_ID.test"
 
 # Running tests
