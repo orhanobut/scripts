@@ -46,9 +46,7 @@ adb push app/build/outputs/apk/app-debug-androidTest.apk "/data/local/tmp/$APP_I
 adb shell pm install -r "/data/local/tmp/$APP_ID.test"
 
 # Running tests
-adb shell am instrument -w -r -e package "$PACKAGE_NAME" -e debug false "$APP_ID.test/$RUNNER" > android-test-log.txt
-
-cat android-test-log.txt
+adb shell am instrument -w -r -e package "$PACKAGE_NAME" -e debug false "$APP_ID.test/$RUNNER" | tee android-test-log.txt
 
 # Generate report
 REPORT_FILE=$(echo $PACKAGE_NAME | tr '.' '_').txt
